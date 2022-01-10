@@ -1,7 +1,6 @@
 package com.testinterface;
 
 import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
-
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
@@ -11,7 +10,7 @@ import java.awt.event.*;
 import java.io.IOException;
 
 public class Gui extends JFrame {
-    //Отдельное спасибо источнику:https://java-online.ru/swing-jfilechooser.xhtml
+    // РћС‚РґРµР»СЊРЅРѕРµ СЃРїР°СЃРёР±Рѕ РёСЃС‚РѕС‡РЅРёРєСѓ:https://java-online.ru/swing-jfilechooser.xhtml
     public static final String serialVersion="0.02 Jan10 2022 by Stepanowich P.S.\n";
     public static final String contactMail="ivanov.pavel.stepanowicht@gmail.com\n";
     private JFileChooser fileChooser = null;
@@ -23,68 +22,68 @@ public class Gui extends JFrame {
     int locationX = (screenSize.width - sizeWidth) / 2;
     int locationY = (screenSize.height - sizeHeight) / 2;
 
-    //наша основная кнопка для старта работы программы
+    // РќР°С€Р° РѕСЃРЅРѕРІРЅР°СЏ РєРЅРѕРїРєР° РґР»СЏ СЃС‚Р°СЂС‚Р° СЂР°Р±РѕС‚С‹ РїСЂРѕРіСЂР°РјРјС‹
     public Gui() {
-        super("Расчёт длины труб из сохранённой таблицы SolidWorks");
+        super("Р Р°СЃС‡С‘С‚ РґР»РёРЅС‹ С‚СЂСѓР± РёР· СЃРѕС…СЂР°РЅС‘РЅРЅРѕР№ С‚Р°Р±Р»РёС†С‹ SolidWorks");
         try {
             UIManager.setLookAndFeel(new WindowsLookAndFeel());
-            //делаем стилизацию окна поиска файла под Windows
+            // Р”РµР»Р°РµРј СЃС‚РёР»РёР·Р°С†РёСЋ РѕРєРЅР° РїРѕРёСЃРєР° С„Р°Р№Р»Р° РїРѕРґ Windows
         } catch (UnsupportedLookAndFeelException e) {
             JOptionPane.showMessageDialog(Gui.this,
-                    "Программа работает только на операционной системе Windows");
-            //Программа будет использоваться только на Windows, но на всякий случай подумал добавить это. Хотя протестировать возможности нет...
+                    "РџСЂРѕРіСЂР°РјРјР° СЂР°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ РЅР° РѕРїРµСЂР°С†РёРѕРЅРЅРѕР№ СЃРёСЃС‚РµРјРµ Windows");
+            // РџСЂРѕРіСЂР°РјРјР° Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ С‚РѕР»СЊРєРѕ РЅР° Windows, РЅРѕ РЅР° РІСЃСЏРєРёР№ СЃР»СѓС‡Р°Р№ РїРѕРґСѓРјР°Р» РґРѕР±Р°РІРёС‚СЊ СЌС‚Рѕ. РҐРѕС‚СЏ РїСЂРѕС‚РµСЃС‚РёСЂРѕРІР°С‚СЊ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РЅРµС‚...
         }
 
-        UIManager.put("FileChooser.openButtonText", "Открыть");
-        UIManager.put("FileChooser.cancelButtonText", "Отмена");
-        UIManager.put("FileChooser.lookInLabelText", "Смотреть в");
-        UIManager.put("FileChooser.fileNameLabelText", "Имя файла");
-        UIManager.put("FileChooser.filesOfTypeLabelText", "Тип файла");
-        UIManager.put("FileChooser.saveButtonText", "Сохранить");
-        UIManager.put("FileChooser.saveButtonToolTipText", "Сохранить");
-        UIManager.put("FileChooser.openButtonText", "Открыть");
-        UIManager.put("FileChooser.openButtonToolTipText", "Открыть");
-        UIManager.put("FileChooser.cancelButtonText", "Отмена");
-        UIManager.put("FileChooser.cancelButtonToolTipText", "Отмена");
-        UIManager.put("FileChooser.lookInLabelText", "Папка");
-        UIManager.put("FileChooser.saveInLabelText", "Папка");
-        UIManager.put("FileChooser.fileNameLabelText", "Имя файла");
-        UIManager.put("FileChooser.filesOfTypeLabelText", "Тип файлов");
-        UIManager.put("FileChooser.upFolderToolTipText", "На один уровень вверх");
-        UIManager.put("FileChooser.newFolderToolTipText", "Создание новой папки");
-        UIManager.put("FileChooser.listViewButtonToolTipText", "Список");
-        UIManager.put("FileChooser.detailsViewButtonToolTipText", "Таблица");
-        UIManager.put("FileChooser.fileNameHeaderText", "Имя");
-        UIManager.put("FileChooser.fileSizeHeaderText", "Размер");
-        UIManager.put("FileChooser.fileTypeHeaderText", "Тип");
-        UIManager.put("FileChooser.fileDateHeaderText", "Изменен");
-        UIManager.put("FileChooser.fileAttrHeaderText", "Атрибуты");
-        UIManager.put("FileChooser.acceptAllFileFilterText", "Все файлы");
-        //Локализация, отдельное спасибо источнику: https://ilovejavaforever.wordpress.com/2015/09/22/%D0%BF%D0%BE%D0%BB%D0%BD%D0%B0%D1%8F-%D1%80%D1%83%D1%81%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-%D1%87%D0%BE%D1%81%D0%B5%D1%80%D0%BE%D0%B2/
+        UIManager.put("FileChooser.openButtonText", "РћС‚РєСЂС‹С‚СЊ");
+        UIManager.put("FileChooser.cancelButtonText", "РћС‚РјРµРЅР°");
+        UIManager.put("FileChooser.lookInLabelText", "РЎРјРѕС‚СЂРµС‚СЊ РІ");
+        UIManager.put("FileChooser.fileNameLabelText", "РРјСЏ С„Р°Р№Р»Р°");
+        UIManager.put("FileChooser.filesOfTypeLabelText", "РўРёРї С„Р°Р№Р»Р°");
+        UIManager.put("FileChooser.saveButtonText", "РЎРѕС…СЂР°РЅРёС‚СЊ");
+        UIManager.put("FileChooser.saveButtonToolTipText", "РЎРѕС…СЂР°РЅРёС‚СЊ");
+        UIManager.put("FileChooser.openButtonText", "РћС‚РєСЂС‹С‚СЊ");
+        UIManager.put("FileChooser.openButtonToolTipText", "РћС‚РєСЂС‹С‚СЊ");
+        UIManager.put("FileChooser.cancelButtonText", "РћС‚РјРµРЅР°");
+        UIManager.put("FileChooser.cancelButtonToolTipText", "РћС‚РјРµРЅР°");
+        UIManager.put("FileChooser.lookInLabelText", "РџР°РїРєР°");
+        UIManager.put("FileChooser.saveInLabelText", "РџР°РїРєР°");
+        UIManager.put("FileChooser.fileNameLabelText", "РРјСЏ С„Р°Р№Р»Р°");
+        UIManager.put("FileChooser.filesOfTypeLabelText", "РўРёРї С„Р°Р№Р»РѕРІ");
+        UIManager.put("FileChooser.upFolderToolTipText", "РќР° РѕРґРёРЅ СѓСЂРѕРІРµРЅСЊ РІРІРµСЂС…");
+        UIManager.put("FileChooser.newFolderToolTipText", "РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕР№ РїР°РїРєРё");
+        UIManager.put("FileChooser.listViewButtonToolTipText", "РЎРїРёСЃРѕРє");
+        UIManager.put("FileChooser.detailsViewButtonToolTipText", "РўР°Р±Р»РёС†Р°");
+        UIManager.put("FileChooser.fileNameHeaderText", "РРјСЏ");
+        UIManager.put("FileChooser.fileSizeHeaderText", "Р Р°Р·РјРµСЂ");
+        UIManager.put("FileChooser.fileTypeHeaderText", "РўРёРї");
+        UIManager.put("FileChooser.fileDateHeaderText", "РР·РјРµРЅРµРЅ");
+        UIManager.put("FileChooser.fileAttrHeaderText", "РђС‚СЂРёР±СѓС‚С‹");
+        UIManager.put("FileChooser.acceptAllFileFilterText", "Р’СЃРµ С„Р°Р№Р»С‹");
+        // Р›РѕРєР°Р»РёР·Р°С†РёСЏ, РѕС‚РґРµР»СЊРЅРѕРµ СЃРїР°СЃРёР±Рѕ РёСЃС‚РѕС‡РЅРёРєСѓ: https://ilovejavaforever.wordpress.com/2015/09/22/%D0%BF%D0%BE%D0%BB%D0%BD%D0%B0%D1%8F-%D1%80%D1%83%D1%81%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F-%D1%87%D0%BE%D1%81%D0%B5%D1%80%D0%BE%D0%B2/
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        // Кнопка для закрытия окна и выхода из программы
+        // РљРЅРѕРїРєР° РґР»СЏ Р·Р°РєСЂС‹С‚РёСЏ РѕРєРЅР° Рё РІС‹С…РѕРґР° РёР· РїСЂРѕРіСЂР°РјРјС‹
 
-        btnOpenFileAndCalculator = new JButton("Рассчитать длину труб");
+        btnOpenFileAndCalculator = new JButton("Р Р°СЃСЃС‡РёС‚Р°С‚СЊ РґР»РёРЅСѓ С‚СЂСѓР±");
 
-        // Кнопка создания диалогового окна для выбора директории
+        // РљРЅРѕРїРєР° СЃРѕР·РґР°РЅРёСЏ РґРёР°Р»РѕРіРѕРІРѕРіРѕ РѕРєРЅР° РґР»СЏ РІС‹Р±РѕСЂР° РґРёСЂРµРєС‚РѕСЂРёРё
         fileChooser = new JFileChooser();
         setBounds(locationX, locationY, sizeWidth, sizeHeight);
-        // Создание экземпляра поля для поиска файла в файловой системе
+        // РЎРѕР·РґР°РЅРёРµ СЌРєР·РµРјРїР»СЏСЂР° РїРѕР»СЏ РґР»СЏ РїРѕРёСЃРєР° С„Р°Р№Р»Р° РІ С„Р°Р№Р»РѕРІРѕР№ СЃРёСЃС‚РµРјРµ
         addFileChooserListeners();
-        // Подключение слушателей к кнопкам
+        // РџРѕРґРєР»СЋС‡РµРЅРёРµ СЃР»СѓС€Р°С‚РµР»РµР№ Рє РєРЅРѕРїРєР°Рј
         JPanel panelForButton = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        // Размещаем кнопку в интерфейсе
+        // Р Р°Р·РјРµС‰Р°РµРј РєРЅРѕРїРєСѓ РІ РёРЅС‚РµСЂС„РµР№СЃРµ
         panelForButton.setBackground(Color.WHITE);
         panelForButton.add(btnOpenFileAndCalculator);
-        // Размещаем кнопку в интерфейсе
+        // Р Р°Р·РјРµС‰Р°РµРј РєРЅРѕРїРєСѓ РІ РёРЅС‚РµСЂС„РµР№СЃРµ
         JPanel panelForTa = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        // Размещаем текстовое поле в интерфейсе
+        // Р Р°Р·РјРµС‰Р°РµРј С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ РІ РёРЅС‚РµСЂС„РµР№СЃРµ
         panelForTa.setBackground(Color.WHITE);
         panelForTa.setAutoscrolls(true);
 
         JTextArea ta = new JTextArea(Faq.getFaq());
-        // Текстовое поле с подсказкой по работе программы
+        // РўРµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ СЃ РїРѕРґСЃРєР°Р·РєРѕР№ РїРѕ СЂР°Р±РѕС‚Рµ РїСЂРѕРіСЂР°РјРјС‹
         ta.setEditable(false);
         ta.setWrapStyleWord(true);
         ta.setCaretPosition(0);
@@ -93,54 +92,51 @@ public class Gui extends JFrame {
         ta.setBackground(Color.WHITE);
         panelForTa.add(ta);
 
-
-//        setContentPane(contents);
-
         Container container = getContentPane();
         container.add(panelForButton, BorderLayout.SOUTH);
         container.add(panelForTa, BorderLayout.NORTH);
         container.setBackground(Color.WHITE);
-        //выравниваем, пробелы между панелями закрашиваем белым
+        // Р’С‹СЂР°РІРЅРёРІР°РµРј, РїСЂРѕР±РµР»С‹ РјРµР¶РґСѓ РїР°РЅРµР»СЏРјРё Р·Р°РєСЂР°С€РёРІР°РµРј Р±РµР»С‹Рј
 
         setVisible(true);
-        // Вывод окна на экран
+        // Р’С‹РІРѕРґ РѕРєРЅР° РЅР° СЌРєСЂР°РЅ
     }
 
     private void addFileChooserListeners() {
         btnOpenFileAndCalculator.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                fileChooser.setDialogTitle("Выбор файла .txt с таблицей труб из SolidWorks");
-                //Заголовок окна
-                FileNameExtensionFilter filter = new FileNameExtensionFilter("Файлы txt (*.txt)", "txt");
-                // Устанавливаем фильтр - только файлы с расширением .txt
+                fileChooser.setDialogTitle("Р’С‹Р±РѕСЂ С„Р°Р№Р»Р° .txt СЃ С‚Р°Р±Р»РёС†РµР№ С‚СЂСѓР± РёР· SolidWorks");
+                // Р—Р°РіРѕР»РѕРІРѕРє РѕРєРЅР°
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("Р¤Р°Р№Р»С‹ txt (*.txt)", "txt");
+                // РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј С„РёР»СЊС‚СЂ - С‚РѕР»СЊРєРѕ С„Р°Р№Р»С‹ СЃ СЂР°СЃС€РёСЂРµРЅРёРµРј .txt
                 fileChooser.setFileFilter(filter);
                 fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
                 int result = fileChooser.showOpenDialog(Gui.this);
-                // Определение режима - только каталог с файлами
+                // РћРїСЂРµРґРµР»РµРЅРёРµ СЂРµР¶РёРјР° - С‚РѕР»СЊРєРѕ РєР°С‚Р°Р»РѕРі СЃ С„Р°Р№Р»Р°РјРё
                 if (result == JFileChooser.APPROVE_OPTION) {
-                    // Если файл выбран, то посчитаем трубы и отобразим результат
+                    // Р•СЃР»Рё С„Р°Р№Р» РІС‹Р±СЂР°РЅ, С‚Рѕ РїРѕСЃС‡РёС‚Р°РµРј С‚СЂСѓР±С‹ Рё РѕС‚РѕР±СЂР°Р·РёРј СЂРµР·СѓР»СЊС‚Р°С‚
                     try {
 
                         String resultToOut =Work.Metal.toCalculate(String.valueOf(fileChooser.getSelectedFile()));
-                        JDialog dialog = new JDialog(Gui.this, "Результат расчёта");
-                        //создаем диалоговое окно с результатом расчета
+                        JDialog dialog = new JDialog(Gui.this, "Р РµР·СѓР»СЊС‚Р°С‚ СЂР°СЃС‡С‘С‚Р°");
+                        // РЎРѕР·РґР°РµРј РґРёР°Р»РѕРіРѕРІРѕРµ РѕРєРЅРѕ СЃ СЂРµР·СѓР»СЊС‚Р°С‚РѕРј СЂР°СЃС‡РµС‚Р°
 
                         JPanel gridText = new JPanel(new FlowLayout(FlowLayout.CENTER));
-                        //выравниваем панель с текстом по центру
+                        // Р’С‹СЂР°РІРЅРёРІР°РµРј РїР°РЅРµР»СЊ СЃ С‚РµРєСЃС‚РѕРј РїРѕ С†РµРЅС‚СЂСѓ
                         gridText.setBackground(Color.WHITE);
                         JPanel grid = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-                        //выравниваем панель с кнопками по правому краю
+                        // Р’С‹СЂР°РІРЅРёРІР°РµРј РїР°РЅРµР»СЊ СЃ РєРЅРѕРїРєР°РјРё РїРѕ РїСЂР°РІРѕРјСѓ РєСЂР°СЋ
                         grid.setBackground(Color.WHITE);
 
-                        JButton copy = new JButton("Скопировать расчет");
-                        // Создаем кнопку для копирования результата
-                        JButton close = new JButton("Закрыть");
-                        // Создаем кнопку для закрытия окна
+                        JButton copy = new JButton("РЎРєРѕРїРёСЂРѕРІР°С‚СЊ СЂР°СЃС‡РµС‚");
+                        // РЎРѕР·РґР°РµРј РєРЅРѕРїРєСѓ РґР»СЏ РєРѕРїРёСЂРѕРІР°РЅРёСЏ СЂРµР·СѓР»СЊС‚Р°С‚Р°
+                        JButton close = new JButton("Р—Р°РєСЂС‹С‚СЊ");
+                        // РЎРѕР·РґР°РµРј РєРЅРѕРїРєСѓ РґР»СЏ Р·Р°РєСЂС‹С‚РёСЏ РѕРєРЅР°
                         grid.add(copy);
                         grid.add(close);
 
                         copy.addActionListener(new ActionListener() {
-                            //делаем слушателя для кнопки Скопировать расчет
+                            //РґРµР»Р°РµРј СЃР»СѓС€Р°С‚РµР»СЏ РґР»СЏ РєРЅРѕРїРєРё РЎРєРѕРїРёСЂРѕРІР°С‚СЊ СЂР°СЃС‡РµС‚
                             @Override
                             public void actionPerformed(ActionEvent e) {
                                 Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -149,7 +145,7 @@ public class Gui extends JFrame {
                             }
                         });
                         close.addActionListener(new ActionListener() {
-                            //делаем слушателя для кнопки Закрыть
+                            //РґРµР»Р°РµРј СЃР»СѓС€Р°С‚РµР»СЏ РґР»СЏ РєРЅРѕРїРєРё Р—Р°РєСЂС‹С‚СЊ
                             @Override
                             public void actionPerformed(ActionEvent e) {
                                 dialog.dispose();
@@ -157,25 +153,25 @@ public class Gui extends JFrame {
                         });
 
                         JTextArea taOut = new JTextArea(15, 15);
-                        //Создаем текстовое поле с результатом
+                        //РЎРѕР·РґР°РµРј С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ СЃ СЂРµР·СѓР»СЊС‚Р°С‚РѕРј
                         taOut.setEditable(false);
                         taOut.setBackground(Color.WHITE);
                         taOut.setText(resultToOut);
                         taOut.setFont(new Font("Times New Roman", Font.ROMAN_BASELINE, 18));
                         gridText.add(taOut);
-                        //добавляем в панель наш текст
+                        //РґРѕР±Р°РІР»СЏРµРј РІ РїР°РЅРµР»СЊ РЅР°С€ С‚РµРєСЃС‚
 
                         Container container = dialog.getContentPane();
                         container.add(grid, BorderLayout.SOUTH);
-                        //выравниваем панель с кнопками по низу
+                        //РІС‹СЂР°РІРЅРёРІР°РµРј РїР°РЅРµР»СЊ СЃ РєРЅРѕРїРєР°РјРё РїРѕ РЅРёР·Сѓ
                         container.add(gridText, BorderLayout.NORTH);
-                        //выравниваем панель с текстом по верху
+                        //РІС‹СЂР°РІРЅРёРІР°РµРј РїР°РЅРµР»СЊ СЃ С‚РµРєСЃС‚РѕРј РїРѕ РІРµСЂС…Сѓ
 
                         dialog.setBounds(locationX+400, locationY+50, 400, 400);
                         dialog.setVisible(true);
                     } catch (IOException ex) {
                         JOptionPane.showMessageDialog(Gui.this,
-                                "Выбран не подходящий файл!");
+                                "Р’С‹Р±СЂР°РЅ РЅРµ РїРѕРґС…РѕРґСЏС‰РёР№ С„Р°Р№Р»!");
                         ex.printStackTrace();
                     }
                 }
